@@ -1,8 +1,6 @@
 # Numérique et Sciences Informatiques Terminale
 
-## [Introduction au cours de NSI](./_ressources/0.0.INTRO.md)
-
-## [Chapitre 0 : Rappels de première](./_ressources/0.0.RAPP.md)
+## [Introduction et rappels](./_ressources/0.0.INTRO.md)
 
 ## [Chapitre 1 : Structures de données](./_ressources/1.0.STRUCT.md)
 
