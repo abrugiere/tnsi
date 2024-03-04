@@ -2,7 +2,7 @@
 
 ## [Introduction et rappels](./_ressources/0.0.INTRO.md)
 
-## [Chapitre 1 : Structures de données](./_ressources/1.0.STRUCT.md)
+## [1️⃣ Structures de données](./_ressources/1.0.STRUCT.md)
 
 ## [Chapitre 2 : Bases de données](./_ressources/2.0.BDD.md)
 
