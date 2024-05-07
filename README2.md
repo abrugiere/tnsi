@@ -4,7 +4,21 @@
 
 <details>
   <summary><h2>1️⃣ Structures de données</h2></summary>
-  
+
+<details>
+    <summary><i>Bulletin Officiel : contenu, capacités attendues</i></summary>
+
+>L’écriture sur des exemples simples de plusieurs implémentations d’une même structure de données permet de faire émerger les notions d’**interface** et d’**implémentation**, ou encore de structure de données abstraite.  
+>Le paradigme de la **programmation objet** peut être utilisé pour réaliser des implémentations effectives des structures de données, même si ce n’est pas la seule façon de procéder.  
+>| Contenu | Capacités attendues |
+>| :-- | :-- |
+>| Structures de données, interface et implémentation <br><br><br><br>Dictionnaires, index et clé | - Spécifier une structure de données par son interface <br>- Distinguer interface et implémentation <br>- Écrire plusieurs implémentations d’une même structure de données <br><br>- Distinguer la recherche d’une valeur dans une liste et dans un dictionnaire|
+>| Vocabulaire de la Programmation Orientée Objet : classes, attributs, méthodes, objets | - Écrire la définition d’une classe <br>- Accéder aux attributs et méthodes d’une classe | 
+>| Listes, piles, files : structures linéaires | - Distinguer des structures par le jeu des méthodes qui les caractérisent <br>- Choisir une structure de données adaptée à la situation à modéliser | 
+>| Arbres : structures hiérarchiques <br><br>Arbres binaires : nœuds, racines, feuilles, sous-arbres gauches, sous-arbres droits | - Identifier des situations nécessitant une structure de données arborescente <br>- Évaluer quelques mesures des arbres binaires (taille, encadrement de la hauteur, etc.) | 
+>| Graphes : structures relationnelles <br>Sommets, arcs, arêtes, graphes orientés ou non orientés | - Modéliser des situations sous forme de graphes <br>- Écrire les implémentations correspondantes d’un graphe : matrice d’adjacence, liste de successeurs/de prédécesseurs <br>- Passer d’une représentation à une autre | 
+</details>
+
 - ### [Structures de données, interface et implémentation](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.1_struct.ipynb) 
 - ### [Vocabulaire de la Programmation Orientée Objet](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.2_poo.ipynb)  +  Exercice type BAC : 
 - ### [Listes, Piles, Files : Structures linéaires](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_struc_lin.ipynb)  +  Exercice type BAC : [Spé NSI 2021 - Am. du Nord 1 - Ex. 5](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_21-NSIJ1AN1-ex5.pdf)
