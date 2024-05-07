@@ -5,7 +5,6 @@
 <details>
   <summary><h2>1️⃣ Structures de données</h2></summary>
 
-
 <details>
     <summary><i>Bulletin Officiel : contenu, capacités attendues</i></summary>
 
@@ -26,7 +25,6 @@
 - ### [Arbres : Structures hiérarchiques](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.4_arbres.ipynb)  +  Exercice type BAC : [Spé NSI 2021 - Am. du Nord 1 - Ex. 4](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.4_21-NSIJ1AN1-ex4.pdf)
 - ### [Graphes : Structures relationnelles](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.5_graphes.ipynb)  +  Exercice type BAC : 
 </details>
-
 
 <details>
   <summary><h2>2️⃣ Bases de données</h2></summary>
