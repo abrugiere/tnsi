@@ -4,6 +4,7 @@
 
 ## 1️⃣ Structures de données 
 <details>
+  <summary>## 1️⃣ Structures de données</summary>
   
 - ### [Structures de données, interface et implémentation](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.1_struct.ipynb) 
 - ### [Vocabulaire de la Programmation Orientée Objet](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.2_poo.ipynb)  +  Exercice type BAC : 
