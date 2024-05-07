@@ -3,11 +3,8 @@
 <details>
   <summary><h2>Introduction et rappels</h2></summary>
 
-
-
-##  Introduction
 <details>
-  <summary><i>Détails</i></summary>
+  <summary><i>Introduction</i></summary>
   
   >__« Dans la nouvelle économie, l’informatique n’est plus une connaissance optionnelle. C’est une compétence basique, comme la lecture, l’écriture et l’arithmétique. »__
   >
@@ -117,10 +114,8 @@
 ---
 </details>
 
-
-## Rappels de première
 <details open>
-  <summary><i>Détails</i></summary> 
+  <summary><i>Rappels de première</i></summary> 
     
   - ### [Types construits : P-uplets et tableau indexés](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/_ressources/0.1_tuples_listes.ipynb)
   - ### [Types construits : Dictionnaires par clés et valeurs](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/_ressources/0.2_dico.ipynb)
@@ -132,9 +127,8 @@
 </details>
 
 
-## Histoire de l'informatique
 <details>
-  <summary><i>Détails</i></summary> 
+  <summary><i>Histoire de l'informatique</i></summary> 
 
   - ### Devoir maison : [Histoire de l’informatique](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/_ressources/0.5_histoire.ipynb)  
 </details>
