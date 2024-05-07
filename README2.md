@@ -2,12 +2,20 @@
 
 ## [Introduction et rappels](./_ressources/0.0.INTRO.md)
 
-## [Chapitre 1 : Structures de données](./_ressources/1.0.STRUCT.md) 
+## 1️⃣ Structures de données 
+<details>
+- ### [Structures de données, interface et implémentation](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.1_struct.ipynb) 
+- ### [Vocabulaire de la Programmation Orientée Objet](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.2_poo.ipynb)  +  Exercice type BAC : 
+- ### [Listes, Piles, Files : Structures linéaires](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_struc_lin.ipynb)  +  Exercice type BAC : [Spé NSI 2021 - Am. du Nord 1 - Ex. 5](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_21-NSIJ1AN1-ex5.pdf)
+- ### [Arbres : Structures hiérarchiques](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.4_arbres.ipynb)  +  Exercice type BAC : [Spé NSI 2021 - Am. du Nord 1 - Ex. 4](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.4_21-NSIJ1AN1-ex4.pdf)
+- ### [Graphes : Structures relationnelles](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.5_graphes.ipynb)  +  Exercice type BAC : 
+</details>
 
-## [Chapitre 2 : Bases de données](./_ressources/2.0.BDD.md)
 
-## [Chapitre 3 : Architectures matérielles, systèmes d’exploitation et réseaux](./_ressources/3.0.ARCHI.md)
+## 2️⃣ Bases de données
 
-## [Chapitre 4 : Langages et programmation](./_ressources/4.0.LANG.md)
+## 3️⃣ Architectures matérielles, systèmes d’exploitation et réseaux
 
-## [Chapitre 5 : Algorithmique](./_ressources/5.0.ALGO.md)
+## 4️⃣ Langages et programmation
+
+## 5️⃣ Algorithmique
