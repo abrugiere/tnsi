@@ -4,6 +4,7 @@
 
 ## 1️⃣ Structures de données 
 <details>
+  
 - ### [Structures de données, interface et implémentation](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.1_struct.ipynb) 
 - ### [Vocabulaire de la Programmation Orientée Objet](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.2_poo.ipynb)  +  Exercice type BAC : 
 - ### [Listes, Piles, Files : Structures linéaires](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_struc_lin.ipynb)  +  Exercice type BAC : [Spé NSI 2021 - Am. du Nord 1 - Ex. 5](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_21-NSIJ1AN1-ex5.pdf)
