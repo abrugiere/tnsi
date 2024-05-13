@@ -163,11 +163,11 @@
 >| Graphes : structures relationnelles <br>Sommets, arcs, arêtes, graphes orientés ou non orientés | - Modéliser des situations sous forme de graphes <br>- Écrire les implémentations correspondantes d’un graphe : matrice d’adjacence, liste de successeurs/de prédécesseurs <br>- Passer d’une représentation à une autre | 
 </details>
 
-- ### [Structures de données, interface et implémentation](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.1_struct.ipynb) 
-- ### [Vocabulaire de la Programmation Orientée Objet](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.2_poo.ipynb)  +  Exercice type BAC : 
-- ### [Listes, Piles, Files : Structures linéaires](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_struc_lin.ipynb)  +  Exercice type BAC : [Spé NSI 2021 - Am. du Nord 1 - Ex. 5](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_21-NSIJ1AN1-ex5.pdf)
-- ### [Arbres : Structures hiérarchiques](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.4_arbres.ipynb)  +  Exercice type BAC : [Spé NSI 2021 - Am. du Nord 1 - Ex. 4](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.4_21-NSIJ1AN1-ex4.pdf)
-- ### [Graphes : Structures relationnelles](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.5_graphes.ipynb)  +  Exercice type BAC : 
+- ### Cours : [Structures de données, interface et implémentation](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.1_struct.ipynb) 
+- ### Cours : [Vocabulaire de la Programmation Orientée Objet](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.2_poo.ipynb)  +  Exercice BAC : 
+- ### Cours : [Listes, Piles, Files : Structures linéaires](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_struc_lin.ipynb)  +  Exercice BAC : [21-NSIJ1AN1-ex5](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.3_21-NSIJ1AN1-ex5.pdf)
+- ### Cours : [Arbres : Structures hiérarchiques](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.4_arbres.ipynb)  +  Exercice BAC : [21-NSIJ1AN1-ex4](https://raw.githubusercontent.com/abrugiere/tnsi/main/1.4_21-NSIJ1AN1-ex4.pdf)
+- ### Cours : [Graphes : Structures relationnelles](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/1.5_graphes.ipynb)  +  Exercice BAC : 
 </details>
 
 <details>
@@ -188,8 +188,8 @@
 >| Langage SQL : requêtes d’interrogation et de mise à jour d’une base de données | - Identifier les composants d’une requête <br>- Construire des requêtes d’interrogation à l’aide des clauses du langage SQL : SELECT, FROM, WHERE, JOIN <br>- Construire des requêtes d’insertion et de mise à jour à l’aide de : UPDATE, INSERT, DELETE | 
 </details>
 
-- ### [Système de Gestion de Bases de Données - Modèle relationnel - Base de données relationnelle](https://notebook.basthon.fr/?kernel=sql&from=https://raw.githubusercontent.com/abrugiere/tnsi/main/2.1_sgbd_relationnel.ipynb) 
-- ### [Langage SQL](https://notebook.basthon.fr/?kernel=sql&from=https://raw.githubusercontent.com/abrugiere/tnsi/main/2.2_sql.ipynb) + TP [Requêtes SQL](https://notebook.basthon.fr/?kernel=sql&from=https://raw.githubusercontent.com/abrugiere/tnsi/main/2.6_tp_sql.ipynb&module=https://raw.githubusercontent.com/abrugiere/tnsi/main/2.6_soccer.db) ([2.6_soccer.db](https://raw.githubusercontent.com/abrugiere/tnsi/main/2.6_soccer.db)) + Exercice type BAC :  [Spé NSI 2023 - Métropole j1 - Ex. 1](https://raw.githubusercontent.com/abrugiere/tnsi/main/2.5_23-NSIJ1ME1-ex1.pdf)
+- ### Cours : [Système de Gestion de Bases de Données - Modèle relationnel - Base de données relationnelle](https://notebook.basthon.fr/?kernel=sql&from=https://raw.githubusercontent.com/abrugiere/tnsi/main/2.1_sgbd_relationnel.ipynb) 
+- ### Cours : [Langage SQL](https://notebook.basthon.fr/?kernel=sql&from=https://raw.githubusercontent.com/abrugiere/tnsi/main/2.2_sql.ipynb) + TP [Requêtes SQL](https://notebook.basthon.fr/?kernel=sql&from=https://raw.githubusercontent.com/abrugiere/tnsi/main/2.6_tp_sql.ipynb&module=https://raw.githubusercontent.com/abrugiere/tnsi/main/2.6_soccer.db) ([2.6_soccer.db](https://raw.githubusercontent.com/abrugiere/tnsi/main/2.6_soccer.db)) + Exercice BAC :  [23-NSIJ1ME1-ex1](https://raw.githubusercontent.com/abrugiere/tnsi/main/2.5_23-NSIJ1ME1-ex1.pdf)
 </details>
 
 <details>
@@ -210,10 +210,10 @@
 >| Sécurisation des communications | - Décrire les principes de chiffrement symétrique (clef partagée) et asymétrique (avec clef privée/clef publique) <br>- Décrire l’échange d’une clef symétrique en utilisant un protocole asymétrique pour sécuriser une communication |
 </details>
 
-- ### [Composants intégrés d’un système sur puce]()
-- ### [Gestion des processus et des ressources par un système d’exploitation]()
-- ### [Protocoles de routage]()
-- ### [Sécurisation des communications]()
+- ### Cours : [Composants intégrés d’un système sur puce]()
+- ### Cours : [Gestion des processus et des ressources par un système d’exploitation]() + Exercice BAC : 
+- ### Cours : [Protocoles de routage]() + Exercices BAC : [23-NSIJ1LR1-ex1](https://raw.githubusercontent.com/abrugiere/tnsi/main/3.3_23-NSIJ1LR1-ex1.pdf), [23-NSIJ2LR1-ex2](https://raw.githubusercontent.com/abrugiere/tnsi/main/3.3_23-NSIJ2LR1-ex2.pdf)
+- ### Cours : [Sécurisation des communications]()
 </details>
 
 <details>
@@ -232,10 +232,10 @@
 >|Paradigmes de programmation | - Distinguer sur des exemples les paradigmes impératif, fonctionnel et objet <br>- Choisir le paradigme de programmation selon le champ d’application d’un programme |
 </details>
 
-- ### [Notion de programme en tant que donnée - Calculabilité, décidabilité](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/4.1_C_calculabilite.ipynb) 
-- ### [Récursivité](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/4.2_recur.ipynb) + Exercice type BAC : 
-- ### [Modularité - Mise au point des programmes - Gestion des bugs](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/4.3_C_modul_mise_au_pt.ipynb) 
-- ### [Paradigmes de programmation](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/4.4_C_paradigmes.ipynb) 
+- ### Cours : [Notion de programme en tant que donnée - Calculabilité, décidabilité](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/4.1_C_calculabilite.ipynb) 
+- ### Cours : [Récursivité](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/4.2_recur.ipynb) + Exercice BAC : 
+- ### Cours : [Modularité - Mise au point des programmes - Gestion des bugs](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/4.3_C_modul_mise_au_pt.ipynb) 
+- ### Cours : [Paradigmes de programmation](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/4.4_C_paradigmes.ipynb) 
 </details>
 
 <details>
@@ -256,11 +256,11 @@
 
 </details>
 
-- ### [Algorithmes sur les arbres binaires et sur les Arbres Binaires de Recherche](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.1_algo_arbres.ipynb) 
-- ### [Algorithmes sur les graphes](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.2_algo_graphes.ipynb) 
-- ### [Méthode « diviser pour régner »](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.3_diviser.ipynb) + Exercice type BAC : 
-- ### [Programmation dynamique](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.4_prog_dyn.ipynb) + Exercice type BAC : 
-- ### [Recherche textuelle](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.5_rech_text.ipynb)
+- ### Cours : [Algorithmes sur les arbres binaires et sur les Arbres Binaires de Recherche](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.1_algo_arbres.ipynb) 
+- ### Cours : [Algorithmes sur les graphes](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.2_algo_graphes.ipynb) 
+- ### Cours : [Méthode « diviser pour régner »](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.3_diviser.ipynb) + Exercice BAC : 
+- ### Cours : [Programmation dynamique](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.4_prog_dyn.ipynb) + Exercice BAC : 
+- ### Cours : [Recherche textuelle](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/5.5_rech_text.ipynb)
 </details>
 
 
