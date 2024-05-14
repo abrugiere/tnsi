@@ -1,6 +1,6 @@
 # Numérique et Sciences Informatiques Terminale
 
-## [Introduction et rappels](0.0.INTRO.md)
+## [Introduction](0.0.INTRO.md)
 
 ## [Rappels de première](0.1.PREM.md)
 
