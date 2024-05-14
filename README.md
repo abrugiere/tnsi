@@ -15,4 +15,4 @@
 ## [Chapitre 5 : Algorithmique](5.0.ALGO.md)
 
 
-### Devoir maison : [Histoire de l’informatique](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/_ressources/0.5_histoire.ipynb){:target="_blank"}  
+## Devoir maison : [Histoire de l’informatique](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/_ressources/0.5_histoire.ipynb){:target="_blank"}  
