@@ -10,7 +10,7 @@
 
 ## [Chapitre 3 : Architectures matérielles, systèmes d’exploitation et réseaux](3.0.ARCHI.md)
 
-## ➡️[Chapitre 4 : Langages et programmation](4.0.LANG.md)
+## [Chapitre 4 : Langages et programmation](4.0.LANG.md)
 
 ## [Chapitre 5 : Algorithmique](5.0.ALGO.md)
 
