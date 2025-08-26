@@ -13,8 +13,3 @@
 ## [Chapitre 4 : Langages et programmation](4.0.LANG.md)
 
 ## [Chapitre 5 : Algorithmique](5.0.ALGO.md)
-
-## [Révisions](6.0.REV.md)
-
-## [Devoir maison :  Histoire de l’informatique](https://notebook.basthon.fr/?from=https://raw.githubusercontent.com/abrugiere/tnsi/main/_ressources/0.5_histoire.ipynb){:target="_blank"}  
-
