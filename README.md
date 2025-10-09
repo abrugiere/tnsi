@@ -14,4 +14,4 @@
 
 ## [Chapitre 5 : Algorithmique](5.0.ALGO.md)
 
-## [Révisions](5.0.REV.md)
+## [Révisions](6.0.REV.md)
