@@ -13,3 +13,5 @@
 ## [Chapitre 4 : Langages et programmation](4.0.LANG.md)
 
 ## [Chapitre 5 : Algorithmique](5.0.ALGO.md)
+
+## [Révisions](5.0.REV.md)
