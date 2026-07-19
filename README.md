@@ -5,7 +5,7 @@
 
 
 ## Rappels de première
-- Programmation Python
+- [x] Programmation Python
 - Tuples et tableau indexés
 - Dictionnaires par clés et valeurs
 - Recherche dichotomique dans un tableau trié
