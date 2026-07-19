@@ -1,0 +1,816 @@
+<!DOCTYPE html><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/github.css" integrity="sha256-3Kq/Y3s2zLxBaWvXF4mw18pnAfq4mSlsi/J2sa9zvSE=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous"><style>
+:root {
+  --md-border: #d1d9e0;
+  --md-muted-fg: #59636e;
+  --md-muted-bg: #f6f8fa;
+  --md-code-bg: rgba(175, 184, 193, 0.2);
+  --md-link: #0969da;
+}
+
+[data-theme='dark'] {
+  --md-border: #30363d;
+  --md-muted-fg: #9198a1;
+  --md-muted-bg: #161b22;
+  --md-code-bg: rgba(110, 118, 129, 0.4);
+  --md-link: #2f81f7;
+}
+
+/* ===== Base ===== */
+
+#preview-content {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  word-wrap: break-word;
+}
+
+#preview-content > *:first-child { margin-top: 0; }
+#preview-content > *:last-child  { margin-bottom: 0; }
+
+#preview-content p,
+#preview-content blockquote,
+#preview-content ul,
+#preview-content ol,
+#preview-content dl,
+#preview-content table,
+#preview-content pre {
+  margin: 0 0 16px 0;
+}
+
+/* ===== Headings ===== */
+
+#preview-content h1,
+#preview-content h2,
+#preview-content h3,
+#preview-content h4,
+#preview-content h5,
+#preview-content h6 {
+  margin: 24px 0 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+#preview-content h1,
+#preview-content h2 {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--md-border);
+}
+
+#preview-content h1 { font-size: 2em;     }
+#preview-content h2 { font-size: 1.5em;   }
+#preview-content h3 { font-size: 1.25em;  }
+#preview-content h4 { font-size: 1em;     }
+#preview-content h5 { font-size: 0.875em; }
+#preview-content h6 { font-size: 0.85em; color: var(--md-muted-fg); }
+
+/* ===== Lists =====
+ * Tailwind's base layer resets list-style on ul/ol, so we re-assert the
+ * GitHub-style nested bullets and numerals here.
+ */
+
+#preview-content ul,
+#preview-content ol { padding-left: 2em; }
+
+#preview-content ul { list-style: disc; }
+#preview-content ul ul { list-style: circle; }
+#preview-content ul ul ul { list-style: square; }
+
+#preview-content ol { list-style: decimal; }
+#preview-content ol ol { list-style: lower-alpha; }
+#preview-content ol ol ol { list-style: lower-roman; }
+
+#preview-content ul ul, #preview-content ul ol,
+#preview-content ol ul, #preview-content ol ol { margin: 0; }
+
+#preview-content li + li { margin-top: 0.25em; }
+#preview-content li > p  { margin-top: 16px; }
+
+/* Task list rows (markdown-it stamps an <input type=checkbox> at the
+ * start of the li). Drop the bullet so the checkbox sits cleanly at
+ * the start of the row. */
+#preview-content li.task-list-item,
+#preview-content li:has(> input[type='checkbox']) {
+  list-style: none;
+  margin-left: -1.5em;
+}
+#preview-content li.task-list-item > input[type='checkbox'],
+#preview-content li > input[type='checkbox'] {
+  margin-right: 0.5em;
+}
+
+/* ===== Blockquote ===== */
+
+#preview-content blockquote {
+  padding: 0 1em;
+  color: var(--md-muted-fg);
+  border-left: 0.25em solid var(--md-border);
+  margin: 0 0 16px;
+}
+
+#preview-content blockquote > :first-child { margin-top: 0; }
+#preview-content blockquote > :last-child  { margin-bottom: 0; }
+
+/* ===== Code ===== */
+
+#preview-content code,
+#preview-content tt {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  background: var(--md-code-bg);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+}
+
+#preview-content pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background: var(--md-muted-bg);
+  border-radius: 6px;
+}
+
+#preview-content pre > code {
+  padding: 0;
+  margin: 0;
+  white-space: pre;
+  word-break: normal;
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+}
+
+/* ===== Fenced code block wrapper =====
+ * The Markdown.ts renderer wraps every fenced block (and indented block
+ * with a recognised language) with a header bar carrying the language
+ * label and a copy button. The wrapper supplies the rounded corners +
+ * border + background; the inner <pre> drops its own to sit flush.
+ */
+
+#preview-content .md-codeblock {
+  margin: 0 0 16px 0;
+  background: var(--md-muted-bg);
+  border: 1px solid var(--md-border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 85%;
+}
+
+#preview-content .md-codeblock-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  color: var(--md-muted-fg);
+  background: var(--md-muted-bg);
+  border-bottom: 1px solid var(--md-border);
+  line-height: 1;
+}
+
+#preview-content .md-codeblock-lang {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+#preview-content .md-codeblock-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7em;
+  height: 1.7em;
+  padding: 0;
+  margin-left: auto;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, transform 120ms ease;
+}
+
+#preview-content .md-codeblock-copy:hover {
+  background: rgba(127, 127, 127, 0.18);
+  color: var(--foreground, inherit);
+}
+
+#preview-content .md-codeblock-copy:active {
+  transform: scale(0.94);
+}
+
+#preview-content .md-codeblock-copy svg {
+  width: 1em;
+  height: 1em;
+}
+
+#preview-content .md-codeblock > pre {
+  margin: 0;
+  padding: 12px 16px;
+  background: transparent;
+  border-radius: 0;
+  font-size: 100%;
+}
+
+/* Terminal-style variant: dark macOS-style chrome with traffic lights. */
+
+#preview-content .md-codeblock--terminal {
+  background: #1f1f23;
+  border-color: #0f0f12;
+  color: #e6e6e6;
+}
+
+#preview-content .md-codeblock--terminal .md-codeblock-header {
+  background: #2b2b30;
+  color: #b8b8c0;
+  border-bottom-color: #0f0f12;
+}
+
+#preview-content .md-codeblock--terminal .md-codeblock-copy:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+#preview-content .md-codeblock--terminal > pre,
+#preview-content .md-codeblock--terminal > pre > code {
+  background: transparent;
+  color: #e6e6e6;
+}
+
+#preview-content .md-codeblock-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#preview-content .md-codeblock-dots i {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+#preview-content .md-codeblock-dots i:nth-child(1) { background: #ff5f56; }
+#preview-content .md-codeblock-dots i:nth-child(2) { background: #ffbd2e; }
+#preview-content .md-codeblock-dots i:nth-child(3) { background: #27c93f; }
+
+/* ===== Tables ===== */
+
+#preview-content table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+#preview-content table th,
+#preview-content table td {
+  padding: 6px 13px;
+  border: 1px solid var(--md-border);
+}
+
+#preview-content table th {
+  font-weight: 600;
+  background: var(--md-muted-bg);
+}
+
+#preview-content table tr:nth-child(2n) { background: var(--md-muted-bg); }
+
+/* ===== Images ===== */
+
+#preview-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Horizontal rule ===== */
+
+#preview-content hr {
+  height: 2px;
+  padding: 0;
+  margin: 24px 0;
+  background: var(--md-border);
+  border: 0;
+}
+
+/* ===== Links ===== */
+
+#preview-content a {
+  color: var(--md-link);
+  text-decoration: none;
+}
+
+#preview-content a:hover { text-decoration: underline; }
+
+/* ===== Keyboard ===== */
+
+#preview-content kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  vertical-align: middle;
+  background: var(--md-muted-bg);
+  border: solid 1px var(--md-border);
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 var(--md-border);
+}
+
+/* ===== Container width (ExportSettings.container) ===== */
+
+#preview-content.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
+#preview-content.container-fluid {
+  max-width: 100%;
+  padding: 0 16px;
+}
+
+/* ===== Custom alert blocks ===== */
+/* Modern flat design: soft tinted background, coloured left border,
+ * uppercase label rendered via ::before. No icon-font dependency.
+ * Matches the eight types AlertBlock.ts emits.
+ */
+
+#preview-content .alert {
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+
+#preview-content .alert > *:first-child { margin-top: 0; }
+#preview-content .alert > *:last-child  { margin-bottom: 0; }
+
+#preview-content .alert::before {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 0.75em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#preview-content .alert a.alert-link { font-weight: 600; }
+
+#preview-content .alert-info {
+  background: rgba(9, 105, 218, 0.08);
+  border-color: #0969da;
+}
+#preview-content .alert-info::before { content: 'Info'; color: #0969da; }
+#preview-content .alert-info a.alert-link { color: #0969da; }
+
+#preview-content .alert-success {
+  background: rgba(31, 136, 61, 0.08);
+  border-color: #1f883d;
+}
+#preview-content .alert-success::before { content: 'Success'; color: #1f883d; }
+#preview-content .alert-success a.alert-link { color: #1f883d; }
+
+#preview-content .alert-warning {
+  background: rgba(154, 103, 0, 0.08);
+  border-color: #9a6700;
+}
+#preview-content .alert-warning::before { content: 'Warning'; color: #9a6700; }
+#preview-content .alert-warning a.alert-link { color: #9a6700; }
+
+#preview-content .alert-danger {
+  background: rgba(207, 34, 46, 0.08);
+  border-color: #cf222e;
+}
+#preview-content .alert-danger::before { content: 'Danger'; color: #cf222e; }
+#preview-content .alert-danger a.alert-link { color: #cf222e; }
+
+#preview-content .alert-primary {
+  background: rgba(81, 144, 136, 0.10);
+  border-color: #519088;
+}
+#preview-content .alert-primary::before { content: 'Note'; color: #519088; }
+#preview-content .alert-primary a.alert-link { color: #519088; }
+
+#preview-content .alert-secondary {
+  background: rgba(89, 99, 110, 0.10);
+  border-color: #59636e;
+}
+#preview-content .alert-secondary::before { content: 'Aside'; color: #59636e; }
+#preview-content .alert-secondary a.alert-link { color: #59636e; }
+
+#preview-content .alert-light {
+  background: rgba(208, 215, 222, 0.30);
+  border-color: #d0d7de;
+}
+#preview-content .alert-light::before { content: 'Tip'; color: #59636e; }
+
+#preview-content .alert-dark {
+  background: rgba(31, 35, 40, 0.10);
+  border-color: #1f2328;
+}
+#preview-content .alert-dark::before { content: 'Important'; color: #1f2328; }
+#preview-content .alert-dark a.alert-link { color: #1f2328; }
+
+/* Dark-mode background lifts for the alerts. Borders + label colours
+ * are kept the same; the slightly higher alpha keeps the soft fill
+ * visible against the dark editor background. */
+
+[data-theme='dark'] #preview-content .alert-info      { background: rgba(47, 129, 247, 0.12); }
+[data-theme='dark'] #preview-content .alert-success   { background: rgba(56, 139, 60, 0.15);  }
+[data-theme='dark'] #preview-content .alert-warning   { background: rgba(187, 128, 9, 0.15);  }
+[data-theme='dark'] #preview-content .alert-danger    { background: rgba(248, 81, 73, 0.15);  }
+[data-theme='dark'] #preview-content .alert-primary   { background: rgba(81, 144, 136, 0.20); }
+[data-theme='dark'] #preview-content .alert-secondary { background: rgba(110, 118, 129, 0.20); }
+[data-theme='dark'] #preview-content .alert-light     { background: rgba(110, 118, 129, 0.10); border-color: #30363d; }
+[data-theme='dark'] #preview-content .alert-dark      { background: rgba(230, 237, 243, 0.10); border-color: #e6edf3; }
+[data-theme='dark'] #preview-content .alert-dark::before    { color: #e6edf3; }
+[data-theme='dark'] #preview-content .alert-dark a.alert-link { color: #e6edf3; }
+
+/* ===== Print ===== */
+
+@media print {
+  #preview-content {
+    color: #000;
+  }
+  #preview-content a { color: #000; text-decoration: underline; }
+  #preview-content pre,
+  #preview-content code,
+  #preview-content kbd {
+    background: #f6f8fa !important;
+  }
+  #preview-content .md-codeblock,
+  #preview-content .md-codeblock--terminal {
+    background: #f6f8fa !important;
+    color: #000 !important;
+    border-color: #d1d9e0 !important;
+  }
+  #preview-content .md-codeblock-header {
+    background: #f6f8fa !important;
+    color: #59636e !important;
+    border-bottom-color: #d1d9e0 !important;
+  }
+  #preview-content .md-codeblock--terminal > pre,
+  #preview-content .md-codeblock--terminal > pre > code {
+    color: #000 !important;
+  }
+  #preview-content .md-codeblock-copy,
+  #preview-content .md-codeblock-dots {
+    display: none !important;
+  }
+}
+
+@media print {
+  .hljs-meta .hljs-string, .hljs-regexp, .hljs-string {
+    color: #f7a857;
+  }
+  .hljs-attr, .hljs-attribute, .hljs-literal, .hljs-meta, .hljs-number,
+  .hljs-operator, .hljs-selector-attr, .hljs-selector-class,
+  .hljs-selector-id, .hljs-variable {
+    color: #78c9e8;
+  }
+  .hljs-title, .hljs-title.class_, .hljs-title.class_.inherited__,
+  .hljs-title.function_ {
+    color: #ccda59;
+  }
+}
+</style></head><body style="font-size: 13px; line-height: 1.1; background-color: rgb(255, 255, 255); color: rgb(33, 37, 41);"><div id="preview-content" class="container-fluid" style="font-size: 13px; line-height: 1.1;"><h1>📌 Cours : Rappels programmation Python</h1>
+<h2>Pourquoi le langage Python ?</h2>
+<ul>
+<li><strong>Facile</strong> à apprendre avec des lignes de commande claires et concises</li>
+<li>C'est un langage <strong>interprété</strong> (et non compilé) donc plus facile à mettre en oeuvre.</li>
+<li>Utilisé en <em>open source</em>, pris en charge par une fondation et soutenu par une large <strong>communauté</strong>.</li>
+<li>Applications dans de divers et nombreux <strong>domaines</strong> (web, data science, intelligence artificielle, recherche …)</li>
+<li>Utilisé dans <strong>l’enseignement supérieur</strong>.</li>
+</ul>
+<blockquote>
+<p>📜 <strong>Repère historique</strong></p>
+<p>Python a été inventé par <strong>Guido van Rossum</strong> Mathématicien Néerlandais.</p>
+<ul>
+<li>Il est né en 1956</li>
+<li>Il a inventé le langage Python en 1991</li>
+<li>Il a reçu lePrix du logiciel libre en 2002</li>
+<li>Il a travaillé pour Google et Dropbox</li>
+</ul>
+<p><strong>Monty Python's Flying Circus</strong> est une série TV humoristique britannique (1969-1974) qui lui inspiré le nom du langage.</p>
+</blockquote>
+<h2>Variables et affectation</h2>
+<blockquote>
+<p>📌 <strong>Définition</strong></p>
+<p>Une <strong>variable</strong> sert à <strong>stocker</strong> une donnée, on peut penser à une boîte sur laquelle est écrit un nom et dans laquelle on place des informations diverses.<br>
+Le nom peut être n'importe quelle chaîne alphanumérique, exceptés certains mots réservés, sans commencer par un chiffre.</p>
+</blockquote>
+<div class="md-codeblock" data-source="IyBMYSB2YXJpYWJsZSBhIHByZW5kIGxhIHZhbGV1ciAyCmEgPSAyCgojIExhIHZhcmlhYmxlIGIgcHJlbmQgbGEgdmFsZXVyIDMKYiA9IDMKCiMgTGEgdmFyaWFibGUgYyBwcmVuZCBsYSB2YWxldXIgYSBwdWlzc2FuY2UgYiBzb2l0IGRvbmMgMiBwdWlzc2FuY2UgMwpjID0gYSAqKiBwCgojIENlY2kgbuKAmWEgYXVjdW4gc2VucyBldCByZW52ZXJyYSB1bmUgZXJyZXVyCjIgKyAzID0gYQoKIyBVbmUgaW5zdHJ1Y3Rpb24gZOKAmWFmZmVjdGF0aW9uCmQgPSAyICsgMwo="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python"><span class="hljs-comment"># La variable a prend la valeur 2</span>
+a = <span class="hljs-number">2</span>
+
+<span class="hljs-comment"># La variable b prend la valeur 3</span>
+b = <span class="hljs-number">3</span>
+
+<span class="hljs-comment"># La variable c prend la valeur a puissance b soit donc 2 puissance 3</span>
+c = a ** p
+
+<span class="hljs-comment"># Ceci n’a aucun sens et renverra une erreur</span>
+<span class="hljs-number">2</span> + <span class="hljs-number">3</span> = a
+
+<span class="hljs-comment"># Une instruction d’affectation</span>
+d = <span class="hljs-number">2</span> + <span class="hljs-number">3</span>
+</code></pre></div>
+<blockquote>
+<p>📌 <strong>Définition</strong></p>
+<p>Une <strong>expression</strong> a une <strong>valeur</strong> qui est le <strong>résultat</strong> d'une combinaison de variables ou d'objets, de constantes et d'opérateurs.</p>
+</blockquote>
+<div class="md-codeblock" data-source="IyBDZWNpIGVzdCB1bmUgZXhwcmVzc2lvbiwgbGEgY29uc29sZSByZW52ZXJyYSBsYSB2YWxldXIgZGUgY2VsbGUtY2kKMiArIDMKCiMgQ2VjaSBlc3QgdW5lIGV4cHJlc3Npb24sIGxhIGNvbnNvbGUgcmVudmVycmEgbGEgdmFsZXVyIGRlIGNlbGxlLWNpCjAuNSpkKioyKzEKCiMgQ2VjaSBlc3QgdW5lIGV4cHJlc3Npb24sIGxhIGNvbnNvbGUgcmVudmVycmEgbGEgdmFsZXVyIGRlIGNlbGxlLWNpCjQ1Cg=="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python"><span class="hljs-comment"># Ceci est une expression, la console renverra la valeur de celle-ci</span>
+<span class="hljs-number">2</span> + <span class="hljs-number">3</span>
+
+<span class="hljs-comment"># Ceci est une expression, la console renverra la valeur de celle-ci</span>
+<span class="hljs-number">0.5</span>*d**<span class="hljs-number">2</span>+<span class="hljs-number">1</span>
+
+<span class="hljs-comment"># Ceci est une expression, la console renverra la valeur de celle-ci</span>
+<span class="hljs-number">45</span>
+</code></pre></div>
+<blockquote>
+<p>📌 <strong>Définition</strong></p>
+<p>Une <strong>instruction</strong> est une <strong>commande</strong> qui doit être exécutée par la machine.</p>
+</blockquote>
+<div class="md-codeblock" data-source="IyBDZWNpIGVzdCB1bmUgaW5zdHJ1Y3Rpb24sIGxhIGNvbnNvbGUgbmUgcmVudmVycmEgcmllbiAKIyBtYWlzIGVmZmVjdHVlcmEgbCdhZmZlY3RhdGlvbiBkZSBsYSB2YWxldXIgMiBkYW5zIGEKYSA9IDIKCiMgQ2VjaSBlc3QgdW5lIGluc3RydWN0aW9uLCBsYSBjb25zb2xlIHJlbnZvaWUgcXVlbHF1ZSBjaG9zZQojIGNhciBsJ2luc3RydWN0aW9uIGRlbWFuZGUgZCdhZmZpY2hlciBlbiBjb25zb2xlCnByaW50KGEpCg=="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python"><span class="hljs-comment"># Ceci est une instruction, la console ne renverra rien </span>
+<span class="hljs-comment"># mais effectuera l'affectation de la valeur 2 dans a</span>
+a = <span class="hljs-number">2</span>
+
+<span class="hljs-comment"># Ceci est une instruction, la console renvoie quelque chose</span>
+<span class="hljs-comment"># car l'instruction demande d'afficher en console</span>
+<span class="hljs-built_in">print</span>(a)
+</code></pre></div>
+<blockquote>
+<p>📌 <strong>Définition</strong></p>
+<p>Une <strong>affectation</strong> est une instruction qui <strong>commande</strong> à la machine de créer une variable en lui précisant son nom et sa valeur.</p>
+</blockquote>
+<div class="md-codeblock" data-source="IyBJbnN0cnVjdGlvbiBk4oCZYWZmZWN0YXRpb24gcXVpIG1ldCBsYSB2YWxldXIgZGUgIjIrMyIgc29pdCAiNSIgZGFucyBsYSB2YXJpYWJsZSBxdWkgYSBwb3VyIG5vbSBhCmEgPSAyICsgMyAgIAoKIyBJbnN0cnVjdGlvbiBk4oCZYWZmZWN0YXRpb24gcXVpIG1ldCBsYSB2YWxldXIgZGUgMC41KmEqKjIrMSBkYW5zIGxhIHZhcmlhYmxlIHF1aSBhIHBvdXIgbm9tIHgKeCA9IDAuNSphKioyKzEK"><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python"><span class="hljs-comment"># Instruction d’affectation qui met la valeur de "2+3" soit "5" dans la variable qui a pour nom a</span>
+a = <span class="hljs-number">2</span> + <span class="hljs-number">3</span>   
+
+<span class="hljs-comment"># Instruction d’affectation qui met la valeur de 0.5*a**2+1 dans la variable qui a pour nom x</span>
+x = <span class="hljs-number">0.5</span>*a**<span class="hljs-number">2</span>+<span class="hljs-number">1</span>
+</code></pre></div>
+<p>Rappels pour affectations rapides :</p>
+<ul>
+<li><code>a , b = 1,2</code> équivaut à <code>a = 1</code> et <code>b = 2</code></li>
+<li><code>x += y</code> équivaut à : <code>x = x + y</code></li>
+</ul>
+<blockquote>
+<p>⌨️ <strong>Vérification sur machine</strong></p>
+<p>Essayez toutes les instructions ci-dessus et observez le résultat obtenu</p>
+</blockquote>
+<h2>Types simples</h2>
+<blockquote>
+<p>📌 <strong>Définition</strong></p>
+<p>Le <strong>type</strong> d'une variable définit l'ensemble des <strong>valeurs</strong> qui peuvent lui être affectées ainsi que les opérations et les fonctions utilisables.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>int</strong> : Les nombres entiers.<br>
+<em>Valeurs possibles :</em>	<code>1</code>	<code>24</code>	<code>789</code>	<code>-12</code>		<code>-64565373567857</code></p>
+</li>
+<li>
+<p><strong>float</strong> : Les nombres réels. Le point remplace la virgule utilisée en mathématiques en France.<br>
+<em>Valeurs/expressions possibles :</em>	<code>1.5</code>		<code>2.6</code>		<code>-10.5</code>		<code>1.5+2.6/-10.5</code></p>
+</li>
+<li>
+<p><strong>bool</strong> : Les valeurs booléennes True (vrai) et False (faux).<br>
+Ces valeurs peuvent être considérées comme les entiers 1 pour True et 0 pour False.<br>
+<em>Expressions possibles :</em>	 <code>0 == 0</code>		<code>8 + 1 == 2 * 3</code>		<code>a &gt;= 14</code></p>
+</li>
+<li>
+<p><strong>str</strong> :	Les chaînes de caractères<br>
+<em>Valeurs possibles :</em>	<code>'Bonjour'</code>		<code>"la valeur de a est"</code>		<code>'234'</code><br>
+Pour affecter la variable de type str on écrira : <code>ch = 'bonjour'</code> ou <code>ch = "bonjour"</code><br>
+Pour connaitre le type d’une variable, on peut utiliser la fonction <code>type</code></p>
+</li>
+</ul>
+<div class="md-codeblock" data-source="Pj4+IyBFeGVtcGxlIGZvbmN0aW9uIHR5cGUoKQo+Pj5jaCA9ICdib25qb3VyJwo+Pj5wcmludChjaCkKYm9uam91cgo+Pj50eXBlIChjaCkKPGNsYXNzICdzdHInPgo="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python">&gt;&gt;&gt;<span class="hljs-comment"># Exemple fonction type()</span>
+&gt;&gt;&gt;ch = <span class="hljs-string">'bonjour'</span>
+&gt;&gt;&gt;<span class="hljs-built_in">print</span>(ch)
+bonjour
+&gt;&gt;&gt;<span class="hljs-built_in">type</span> (ch)
+&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">'str'</span>&gt;
+</code></pre></div>
+<h3>Opérations sur les types numériques</h3>
+<table class="table table-sm table-bordered table-striped">
+<thead>
+<tr>
+<th style="text-align:center">Priorité basse</th>
+<th style="text-align:center">Priorité moyenne</th>
+<th style="text-align:center">Priorité haute</th>
+<th style="text-align:center">Priorité la plus haute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>+</code>   <code>-</code></td>
+<td style="text-align:center"><code>*</code> <code>/</code> <code>//</code> <code>%</code></td>
+<td style="text-align:center"><code>**</code></td>
+<td style="text-align:center"><code>()</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>a - b + c * d ** e	=	a - b + (c * (d ** e))</code></p>
+<p><code>5 - 8 + 4 * 2 ** 3 =	5 - 8 + ( 4 * (2**3) ) = -3 + (4 * 8) = -3 + 32 = 29</code></p>
+<blockquote>
+<p>💡 <strong>Astuce</strong></p>
+<p>L méthode <strong>PEMDAS</strong> = <strong>P</strong>arenthèse <strong>E</strong>xposant <strong>M</strong>ultiplication <strong>D</strong>ivision <strong>A</strong>ddition <strong>S</strong>oustraction permet de retinir les priorités</p>
+</blockquote>
+<p>Rappels :</p>
+<ul>
+<li>Le symbole <code>//</code> renvoie le quotient de la division euclidienne : <code>10 // 3 = 3</code></li>
+<li>Le symbole <code>%</code> renvoie le reste de la division euclidienne (modulo) : <code>10 % 3 = 1</code></li>
+</ul>
+<div class="md-codeblock" data-source="Pj4+IyBRdW90aWVudAo+Pj4xMCAvLyAzCjMKPj4+IyBSZXN0ZQo+Pj4xMCAlIDMKMQo="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python">&gt;&gt;&gt;<span class="hljs-comment"># Quotient</span>
+&gt;&gt;&gt;<span class="hljs-number">10</span> // <span class="hljs-number">3</span>
+<span class="hljs-number">3</span>
+&gt;&gt;&gt;<span class="hljs-comment"># Reste</span>
+&gt;&gt;&gt;<span class="hljs-number">10</span> % <span class="hljs-number">3</span>
+<span class="hljs-number">1</span>
+</code></pre></div>
+<h3>Comparaisons et opérateurs logiques</h3>
+<ul>
+<li><code>==</code> égal</li>
+<li><code>!=</code> différent</li>
+<li><code>&gt;</code> supérieur</li>
+<li><code>&lt;=</code> inférieur ou égal</li>
+<li><code>or</code>  ou</li>
+<li><code>and</code>  et</li>
+<li><code>not</code>  non</li>
+</ul>
+<p>Ces opérations renverront une valeur <strong>booléenne</strong> : <code>True</code> ou <code>False</code></p>
+<blockquote>
+<p>⌨️ <strong>Vérification sur machine</strong></p>
+<ul>
+<li>Affectez les valeurs <code>2</code> , <code>3</code>, <code>True</code> et <code>False</code> respectivement aux variables <strong>a</strong>, <strong>b</strong>, <strong>c</strong> et <strong>d</strong></li>
+<li>Vérifiez et notez à côté la valeur des expressions suivantes :</li>
+</ul>
+<div class="md-codeblock" data-source="YSA9PSAyCgphID09IDMKCmEgPT0gYgoKYiAhPSAzCgphID4gMgoKYiA8PSAzCgphICE+IDIKCm5vdCBjCgpjIGFuZCBkCgpjIG9yIGQK"><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python">a == <span class="hljs-number">2</span>
+
+a == <span class="hljs-number">3</span>
+
+a == b
+
+b != <span class="hljs-number">3</span>
+
+a &gt; <span class="hljs-number">2</span>
+
+b &lt;= <span class="hljs-number">3</span>
+
+a !&gt; <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">not</span> c
+
+c <span class="hljs-keyword">and</span> d
+
+c <span class="hljs-keyword">or</span> d
+</code></pre></div>
+</blockquote>
+<h3>Opérations sur le type str</h3>
+<p>Affectation :  <code>ch = 'bonjour'</code>  ou  <code>ch = "bonjour"</code></p>
+<blockquote>
+<p>⚠️ <strong>Attention</strong></p>
+<p>Si on écrit <code>ch = bonjour</code> alors <code>bonjour</code> est considéré comme le nom d'une variable, <code>ch</code> prendra donc la même valeur et une erreur sera signalée si cette variable n'existe pas.</p>
+</blockquote>
+<ul>
+<li>La fonction <code>len</code> renvoie le nombre de caractères contenus dans la chaîne</li>
+</ul>
+<div class="md-codeblock" data-source="Pj4+IyBGb25jdGlvbiBsZW4oKQo+Pj5jaCA9ICdib25qb3VyJwo+Pj5sZW4oY2gpCjcKPj4+bGVuKCJNZXJjcmVkaSIpCjgK"><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python">&gt;&gt;&gt;<span class="hljs-comment"># Fonction len()</span>
+&gt;&gt;&gt;ch = <span class="hljs-string">'bonjour'</span>
+&gt;&gt;&gt;<span class="hljs-built_in">len</span>(ch)
+<span class="hljs-number">7</span>
+&gt;&gt;&gt;<span class="hljs-built_in">len</span>(<span class="hljs-string">"Mercredi"</span>)
+<span class="hljs-number">8</span>
+</code></pre></div>
+<ul>
+<li>Les indices de position des caractères dans une chaîne commencent à <code>0</code></li>
+</ul>
+<div class="md-codeblock" data-source="Pj4+IyBMZXMgaW5kaWNlcwo+Pj5jaCA9ICdib25qb3VyJwo+Pj5jaFsxXQonbycKPj4+Y2hbMF0KJ2InCj4+PmNoWzddClRyYWNlYmFjayAobW9zdCByZWNlbnQgY2FsbCBsYXN0KToKICBGaWxlICI8YmFzdGhvbi1pbnB1dC0xNy05NzQ1ZTg4MDEzODM+IiwgbGluZSAxLCBpbiA8bW9kdWxlPgogICAgY2hbN10KICAgIH5+Xl5eCkluZGV4RXJyb3I6IHN0cmluZyBpbmRleCBvdXQgb2YgcmFuZ2UKPj4+Y2hbMTozXQonb24nCg=="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python">&gt;&gt;&gt;<span class="hljs-comment"># Les indices</span>
+&gt;&gt;&gt;ch = <span class="hljs-string">'bonjour'</span>
+&gt;&gt;&gt;ch[<span class="hljs-number">1</span>]
+<span class="hljs-string">'o'</span>
+&gt;&gt;&gt;ch[<span class="hljs-number">0</span>]
+<span class="hljs-string">'b'</span>
+&gt;&gt;&gt;ch[<span class="hljs-number">7</span>]
+Traceback (most recent call last):
+  File <span class="hljs-string">"&lt;basthon-input-17-9745e8801383&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+    ch[<span class="hljs-number">7</span>]
+    ~~^^^
+IndexError: string index out of <span class="hljs-built_in">range</span>
+&gt;&gt;&gt;ch[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]
+<span class="hljs-string">'on'</span>
+</code></pre></div>
+<ul>
+<li>Opérations sur le type <code>str</code></li>
+</ul>
+<div class="md-codeblock" data-source="Pj4+YSA9ICJib24iCj4+PmIgPSAiam91ciIKPj4+IyBDb25jYXTDqW5hdGlvbgo+Pj5hICsgYgonYm9uam91cicKPj4+IyBNdWx0aXBsaWNhdGlvbgoyKmEKJ2JvbmJvbicK"><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python">&gt;&gt;&gt;a = <span class="hljs-string">"bon"</span>
+&gt;&gt;&gt;b = <span class="hljs-string">"jour"</span>
+&gt;&gt;&gt;<span class="hljs-comment"># Concaténation</span>
+&gt;&gt;&gt;a + b
+<span class="hljs-string">'bonjour'</span>
+&gt;&gt;&gt;<span class="hljs-comment"># Multiplication</span>
+<span class="hljs-number">2</span>*a
+<span class="hljs-string">'bonbon'</span>
+</code></pre></div>
+<h3>Conversions de type</h3>
+<p>Il existe plusieurs fonctions qui permettent de forcer le type d'une variable en un autre type pour permettre de la comparer ou effectuer des opérations.</p>
+<ul>
+<li><code>bool()</code> convertit en booléen : <code>0</code>, <code>""</code> ou <code>None</code> donnent <code>False</code> et le reste <code>True</code></li>
+<li><code>int()</code> permet de modifier une variable en entier en supprimant la partie décimale</li>
+<li><code>float()</code> convertit en flottant en ajoutant une partie décimale nulle</li>
+<li><code>str()</code> converti en chaine de caractères</li>
+</ul>
+<div class="md-codeblock" data-source="IyBRdWVscXVlcyBleGVtcGxlcyBkZSBjb252ZXJzaW9uIGRlIHR5cGVzCj4+PmEgPSAzNC4zCj4+PmIgPSAyMwo+Pj50eXBlKGEpCjxjbGFzcyAnZmxvYXQnPgo+Pj50eXBlKGIpCjxjbGFzcyAnaW50Jz4KPj4+YyA9IHN0cihhKQo+Pj50eXBlKGMpCjxjbGFzcyAnc3RyJz4KPj4+ZCA9IGZsb2F0KGIpCj4+PnR5cGUoZCkKPGNsYXNzICdmbG9hdCc+Cj4+PmUgPSAnSm91ZXVyIDEnCj4+PnR5cGUoZSkKPGNsYXNzICdzdHInPgo+Pj5wcmludCgiQnJhdm8gIiArIGUgKyAiLCB2b3VzIGF2ZXogIiArIGEgKyAiIHBvaW50cyAhIikKVHJhY2ViYWNrIChtb3N0IHJlY2VudCBjYWxsIGxhc3QpOgogIEZpbGUgIjxiYXN0aG9uLWlucHV0LTQtN2MwOWMxYjRiM2ZjPiIsIGxpbmUgMSwgaW4gPG1vZHVsZT4KICAgIHByaW50KCJCcmF2byAiICsgZSArICIsIHZvdXMgYXZleiAiICsgYSArICIgcG9pbnRzICEiKQogICAgICAgICAgfn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Xn5+ClR5cGVFcnJvcjogY2FuIG9ubHkgY29uY2F0ZW5hdGUgc3RyIChub3QgImZsb2F0IikgdG8gc3RyCg=="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python"><span class="hljs-comment"># Quelques exemples de conversion de types</span>
+&gt;&gt;&gt;a = <span class="hljs-number">34.3</span>
+&gt;&gt;&gt;b = <span class="hljs-number">23</span>
+&gt;&gt;&gt;<span class="hljs-built_in">type</span>(a)
+&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">'float'</span>&gt;
+&gt;&gt;&gt;<span class="hljs-built_in">type</span>(b)
+&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">'int'</span>&gt;
+&gt;&gt;&gt;c = <span class="hljs-built_in">str</span>(a)
+&gt;&gt;&gt;<span class="hljs-built_in">type</span>(c)
+&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">'str'</span>&gt;
+&gt;&gt;&gt;d = <span class="hljs-built_in">float</span>(b)
+&gt;&gt;&gt;<span class="hljs-built_in">type</span>(d)
+&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">'float'</span>&gt;
+&gt;&gt;&gt;e = <span class="hljs-string">'Joueur 1'</span>
+&gt;&gt;&gt;<span class="hljs-built_in">type</span>(e)
+&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">'str'</span>&gt;
+&gt;&gt;&gt;<span class="hljs-built_in">print</span>(<span class="hljs-string">"Bravo "</span> + e + <span class="hljs-string">", vous avez "</span> + a + <span class="hljs-string">" points !"</span>)
+Traceback (most recent call last):
+  File <span class="hljs-string">"&lt;basthon-input-4-7c09c1b4b3fc&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Bravo "</span> + e + <span class="hljs-string">", vous avez "</span> + a + <span class="hljs-string">" points !"</span>)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+TypeError: can only concatenate <span class="hljs-built_in">str</span> (<span class="hljs-keyword">not</span> <span class="hljs-string">"float"</span>) to <span class="hljs-built_in">str</span>
+</code></pre></div>
+<p>Dans ce dernier exemple, l'erreur ici est de vouloir concaténer une chaîne de caractères (<code>"Bravo Joueur 1, vous avez"</code>)  avec un flottant (la variable <code>a</code>)<br>
+On corrigera avec :</p>
+<div class="md-codeblock" data-source="Pj4+cHJpbnQoIkJyYXZvICIgKyBlICsgIiwgdm91cyBhdmV6ICIgKyBzdHIoYSkgKyAiIHBvaW50cyAhIikKQnJhdm8gSm91ZXVyIDEsIHZvdXMgYXZleiAzNC4zIHBvaW50cyAhCg=="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python">&gt;&gt;&gt;<span class="hljs-built_in">print</span>(<span class="hljs-string">"Bravo "</span> + e + <span class="hljs-string">", vous avez "</span> + <span class="hljs-built_in">str</span>(a) + <span class="hljs-string">" points !"</span>)
+Bravo Joueur <span class="hljs-number">1</span>, vous avez <span class="hljs-number">34.3</span> points !
+</code></pre></div>
+<blockquote>
+<p>⌨️ <strong>Vérification sur machine</strong></p>
+<ul>
+<li>Vérifiez et notez à côté la valeur des expressions suivantes :</li>
+</ul>
+<div class="md-codeblock" data-source="Ym9vbCgwKQoKYm9vbCgiIikKCmJvb2woTm9uZSkKCmJvb2woMTU2KQoKYm9vbCgidG90byIpCgpib29sKDE4LjIzKQoKaW50KDc4OS45NTYpCgpmbG9hdCg1KQoKc3RyKDEyKQo="><div class="md-codeblock-header"><span class="md-codeblock-lang">Python</span><button type="button" class="md-codeblock-copy" aria-label="Copy code"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="9" rx="1.25"></rect><path d="M3 10V3a1 1 0 0 1 1-1h7"></path></svg></button></div><pre class="hljs"><code class="hljs language-python"><span class="hljs-built_in">bool</span>(<span class="hljs-number">0</span>)
+
+<span class="hljs-built_in">bool</span>(<span class="hljs-string">""</span>)
+
+<span class="hljs-built_in">bool</span>(<span class="hljs-literal">None</span>)
+
+<span class="hljs-built_in">bool</span>(<span class="hljs-number">156</span>)
+
+<span class="hljs-built_in">bool</span>(<span class="hljs-string">"toto"</span>)
+
+<span class="hljs-built_in">bool</span>(<span class="hljs-number">18.23</span>)
+
+<span class="hljs-built_in">int</span>(<span class="hljs-number">789.956</span>)
+
+<span class="hljs-built_in">float</span>(<span class="hljs-number">5</span>)
+
+<span class="hljs-built_in">str</span>(<span class="hljs-number">12</span>)
+</code></pre></div>
+</blockquote>
+<h2>L’indentation</h2>
+<h2>Instructions conditionnelles et boucles</h2>
+<h2>Les fonctions</h2>
+<h2>Espace et portée des variables</h2>
+<h2>Bonnes pratiques</h2>
+<ul>
+<li>Nommage des variables</li>
+<li>Commmentaires</li>
+<li>Docstring</li>
+</ul>
+</div><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous"></script><script>
+(function () {
+  if (typeof document === 'undefined') return;
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!target || !target.closest) return;
+    var btn = target.closest('.md-codeblock-copy');
+    if (!btn) return;
+    var wrapper = btn.closest('.md-codeblock');
+    var encoded = wrapper && wrapper.getAttribute('data-source');
+    if (!encoded) return;
+    try {
+      var binary = atob(encoded);
+      var bytes = Uint8Array.from(binary, function (c) { return c.charCodeAt(0); });
+      var text = new TextDecoder().decode(bytes);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text);
+      }
+      btn.classList.add('is-copied');
+      setTimeout(function () { btn.classList.remove('is-copied'); }, 1200);
+    } catch (err) { /* noop */ }
+  });
+})();
+</script></body>
