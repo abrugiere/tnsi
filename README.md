@@ -8,13 +8,13 @@
 - [x] 0.2 - Programmation Python
 - [x] 0.3 - Tuples et tableau indexés
 - [x] 0.4 - Dictionnaires par clés et valeurs
-- [ ] 0.5 - Recherche dichotomique dans un tableau trié
+- [x] 0.5 - Recherche dichotomique dans un tableau trié
 - [ ] 0.6 - Les algorithmes de tri
 - [ ] 0.7 - Les algorithmes gloutons
 
 ## Langages et programmation
-- [ ] 1.1 - Récursivité
-- [ ] 1.2 - Interface et implémentation
+- [x] 1.1 - Récursivité
+- [x] 1.2 - Interface et implémentation
 - [ ] 1.3 - Modularité, tests et assertions
 - [ ] 1.4 - Paradigmes de programmation
 - [ ] 1.5 - Programme en tant que donnée, calculabilité, décidabilité
