@@ -15,9 +15,9 @@
 ## Langages et programmation
 - [x] 1.1 - Récursivité
 - [x] 1.2 - Interface et implémentation
-- [ ] 1.3 - Modularité, tests et assertions
-- [ ] 1.4 - Paradigmes de programmation
-- [ ] 1.5 - Programme en tant que donnée, calculabilité, décidabilité
+- [x] 1.3 - Modularité, tests et assertions
+- [x] 1.4 - Paradigmes de programmation
+- [x] 1.5 - Programme en tant que donnée, calculabilité, décidabilité
 - [ ] 1.6 - Programmation Orientée Objet
 
 ## Structures de données
