@@ -21,7 +21,7 @@
 - [ ] 1.6 - Programmation Orientée Objet
 
 ## Structures de données
-- [ ] 2.1 - Listes, Piles, Files - Structures linéaires
+- [ ] 2.1 - Listes, Piles, Files : Structures linéaires
 - [ ] 2.2 - Arbres et arbres binaires : Structures hiérarchiques
 - [ ] 2.3 - Algorithmes sur les arbres binaires
 - [ ] 2.4 - Arbres Binaires de Recherche
