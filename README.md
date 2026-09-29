@@ -37,9 +37,9 @@
 - [ ] 4.1 - Protocoles de routage
 - [ ] 4.2 - Composants intégrés d’un système sur puce
 - [ ] 4.3 - Sécurisation des communications
-- [ ] 4.4 - Gestion des processus et des ressources par un système d’exploitation
+- [ ] 4.4 - Gestion des processus et des ressources par un OS
 
-## Algorithmique
+## Algorithmique avancée
 - [ ] 5.1 - Recherche textuelle
 - [ ] 5.2 - Méthode « diviser pour régner »
 - [ ] 5.3 - Programmation dynamique
