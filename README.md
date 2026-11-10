@@ -18,7 +18,7 @@
 - [x] 1.3 - Modularité, tests et assertions
 - [x] 1.4 - Paradigmes de programmation
 - [x] 1.5 - Programme en tant que donnée, calculabilité, décidabilité
-- [ ] 1.6 - Programmation Orientée Objet
+- [x] 1.6 - Programmation Orientée Objet
 
 ## Structures de données
 - [ ] 2.1 - Listes, Piles, Files : Structures linéaires
